@@ -9,8 +9,13 @@
 @code {
     private int currentCount = 0;
 
+    [Inject]
+    private Blazor.Analytics.IAnalytics Analytics { get; set; }
+
     private void IncrementCount()
     {
         currentCount++;
+        // event tracking
+        Analytics.TrackEvent("Increment", currentCount.ToString(), "CountPage");
     }
 }

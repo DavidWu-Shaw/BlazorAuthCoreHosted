@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Blazor.Analytics;
 
 namespace BlazorAuthCoreHosted.Client
 {
@@ -23,6 +24,8 @@ namespace BlazorAuthCoreHosted.Client
 
             // Supply HttpClient instances that include access tokens when making requests to the server project
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("BlazorAuthCoreHosted.ServerAPI"));
+
+            builder.Services.AddGoogleAnalytics("G-NG0X8T7Z8Z");
 
             builder.Services.AddApiAuthorization();
 

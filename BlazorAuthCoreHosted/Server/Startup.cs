@@ -32,10 +32,10 @@ namespace BlazorAuthCoreHosted.Server
         public void ConfigureServices(IServiceCollection services)
         {
             // Configure Rollbar
-            services.AddRollbarLogger(loggerOptions =>
-            {
-                loggerOptions.Filter = (loggerName, loglevel) => loglevel >= LogLevel.Error;
-            });
+            //services.AddRollbarLogger(loggerOptions =>
+            //{
+            //    loggerOptions.Filter = (loggerName, loglevel) => loglevel >= LogLevel.Error;
+            //});
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
@@ -70,7 +70,7 @@ namespace BlazorAuthCoreHosted.Server
                 app.UseHsts();
             }
             // Rollbar middleware
-            app.UseRollbarMiddleware();
+            //app.UseRollbarMiddleware();
 
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
